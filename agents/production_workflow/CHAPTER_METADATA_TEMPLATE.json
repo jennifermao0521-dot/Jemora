@@ -1,24 +1,38 @@
 {
-  "work_id": "",
-  "title": "",
-  "author": "知遙",
-  "chapter_id": "001",
-  "chapter_title": "",
+  "schema_version": "1.0",
+  "work": {
+    "work_id": "",
+    "title": "",
+    "author": "知遙",
+    "source_version": "",
+    "chapter_id": "001",
+    "chapter_title": ""
+  },
   "characters": [],
   "locations": [],
-  "time": "",
-  "events": [],
-  "emotion": "",
+  "time": {
+    "period": "",
+    "time_of_day": ""
+  },
+  "plot": {
+    "summary": "",
+    "events": [],
+    "emotion": "",
+    "emotional_arc": []
+  },
   "narration": [],
   "dialogue": [],
   "scenes": [
     {
       "scene_id": "S001",
+      "order": 1,
       "location": "",
       "characters": [],
       "action": "",
       "emotion": "",
       "visual_prompt": "",
+      "shot_type": "",
+      "camera_motion": "",
       "dialogue": [],
       "narration": [],
       "sound_effects": [],
@@ -30,27 +44,35 @@
   ],
   "audiobook": {
     "voice_map": {},
-    "output": ""
+    "narration_output": "",
+    "final_output": ""
   },
   "subtitle": {
-    "languages": ["zh-TW"],
-    "format": "srt"
+    "languages": ["zh-TW", "zh-CN", "en"],
+    "format": "srt",
+    "zh-TW": "",
+    "zh-CN": "",
+    "en": ""
+  },
+  "music": {
+    "themes": [],
+    "tracks": []
   },
   "video": {
     "target_duration_minutes": 60,
     "format": "mp4",
     "storyboard": "",
+    "narration": "",
+    "music": "",
+    "subtitle": "",
     "output": ""
-  },
-  "music": {
-    "themes": [],
-    "tracks": []
   },
   "qc": {
     "text_checked": false,
     "voice_checked": false,
     "subtitle_checked": false,
     "music_checked": false,
-    "video_checked": false
+    "video_checked": false,
+    "release_ready": false
   }
 }
