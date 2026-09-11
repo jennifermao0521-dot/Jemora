@@ -1,0 +1,56 @@
+{
+  "work_id": "",
+  "title": "",
+  "author": "知遙",
+  "chapter_id": "001",
+  "chapter_title": "",
+  "characters": [],
+  "locations": [],
+  "time": "",
+  "events": [],
+  "emotion": "",
+  "narration": [],
+  "dialogue": [],
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "location": "",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "visual_prompt": "",
+      "dialogue": [],
+      "narration": [],
+      "sound_effects": [],
+      "music_theme": "",
+      "music_start": 0,
+      "music_fade_in": 0,
+      "music_fade_out": 0
+    }
+  ],
+  "audiobook": {
+    "voice_map": {},
+    "output": ""
+  },
+  "subtitle": {
+    "languages": ["zh-TW"],
+    "format": "srt"
+  },
+  "video": {
+    "target_duration_minutes": 60,
+    "format": "mp4",
+    "storyboard": "",
+    "output": ""
+  },
+  "music": {
+    "themes": [],
+    "tracks": []
+  },
+  "qc": {
+    "text_checked": false,
+    "voice_checked": false,
+    "subtitle_checked": false,
+    "music_checked": false,
+    "video_checked": false
+  }
+}
