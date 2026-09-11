@@ -4,7 +4,7 @@
 
 - **定位**：原創故事 IP 資產管理、多通路發行，以及 AI Agent 協作寫作與內容製作知識庫。
 - **作者／IP 創作**：知遙
-- **發行通路**：Kobo、Readmoo、Apple Books、Pubu、Amazon（非獨家 Wide Distribution）
+- **發行通路**：Kobo、Readmoo、Apple Books、Pubu、Amazon（非獨家 Wide Distribution）、喜馬拉雅（Himalaya）
 - **內容延伸**：小說 → 有聲小說 → 影片 → 字幕 → 音樂 → 多平台出版
 - **資產治理**：讓各 Agent 能依照作品設定讀取資料、維持角色與世界觀一致性，並支援續寫、改編、配音與影音製作。
 
@@ -56,7 +56,8 @@ Jemora/
 │   ├── Amazon_KDP/
 │   ├── Readmoo/
 │   ├── Pubu/
-│   └── Apple_Books/
+│   ├── Apple_Books/
+│   └── 喜馬拉雅/
 │
 ├── agents/                       # AI Agent 工作規則與知識
 │   ├── character_bible/
