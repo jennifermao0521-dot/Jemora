@@ -1,25 +1,23 @@
 # macOS
-
 .DS_Store
-
 .AppleDouble
-
 .LSOverride
-
 ._*
 
 # Microsoft Office 暫存檔
-
 ~$*.docx
-
 ~$*.xlsx
-
 ~$*.pptx
 
 # 暫存與快取
-
 *.tmp
-
 *.swp
-
 *~
+
+# Local secrets / environments
+.env
+.env.*
+!.env.example
+
+# Generated media / local output
+outputs/
