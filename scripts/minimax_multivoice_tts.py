@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Jemora multi-character audiobook generator for MiniMax Speech 2.8.
 
-Reads a simple dialogue script (TXT) and generates one MP3 per speaker plus a
+Reads a simple dialogue script (TXT) and generates one MP3 per line plus a
 mixed chapter MP3. API credentials are read from MINIMAX_API_KEY and are never
 stored in the repository.
 
@@ -16,6 +16,7 @@ A line without [speaker] is treated as narration.
 from __future__ import annotations
 
 import argparse
+import binascii
 import os
 import re
 import subprocess
@@ -30,7 +31,6 @@ DEFAULT_SPEED = float(os.getenv("MINIMAX_TTS_SPEED", "1.0"))
 DEFAULT_VOLUME = float(os.getenv("MINIMAX_TTS_VOLUME", "1.0"))
 DEFAULT_PITCH = int(os.getenv("MINIMAX_TTS_PITCH", "0"))
 
-# Replace these with the actual MiniMax voice IDs chosen for the project.
 VOICE_MAP = {
     "旁白": os.getenv("JEMORA_VOICE_NARRATOR", ""),
     "樓慕妍": os.getenv("JEMORA_VOICE_LOU_MUYAN", ""),
@@ -101,7 +101,6 @@ def tts(text: str, voice_id: str) -> bytes:
     base = data.get("base_resp", {})
     if base.get("status_code", 0) != 0:
         raise RuntimeError(f"MiniMax error: {base.get('status_msg', data)}")
-    import binascii
     return binascii.unhexlify(data["data"]["audio"])
 
 
@@ -111,10 +110,12 @@ def ensure_ffmpeg() -> None:
 
 
 def mix(files: list[Path], output: Path) -> None:
-    # Concatenating generated segments preserves the script order and avoids
-    # re-generating voices. ffmpeg's concat demuxer handles MP3 segments.
     list_file = output.with_suffix(".concat.txt")
-    list_file.write_text("\n".join(f"file '{p.resolve().as_posix().replace("'", "'\\''")}'" for p in files), encoding="utf-8")
+    lines = []
+    for path in files:
+        escaped = path.resolve().as_posix().replace("'", "'\\''")
+        lines.append(f"file '{escaped}'")
+    list_file.write_text("\n".join(lines), encoding="utf-8")
     try:
         subprocess.run(
             ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_file), "-c", "copy", str(output)],
